@@ -1,14 +1,7 @@
-
-### File 2 — `ar_ap_case.py`
-
-This is the Python component. It calculates the outstanding balance and evaluates the dispute.
-
-```python
 # Invoice Wars: AR vs. AP
 # Educational bookkeeping simulation
 
 company = "Sterling Office Solutions LLC"
-
 customer = "Greenfield Medical Group"
 
 invoice_amount = 2650.00
