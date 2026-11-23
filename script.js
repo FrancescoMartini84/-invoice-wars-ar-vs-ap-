@@ -9,7 +9,7 @@ function evaluateDecision() {
     result.style.display = "block";
 
     if (decision === "hold") {
-        
+
         result.innerHTML = `
             <h3>Correct decision!</h3>
 
@@ -40,13 +40,35 @@ function evaluateDecision() {
 
             <p>
                 A disputed deduction is not automatically
-                bad debt.
+                grounds for issuing a customer credit.
             </p>
 
             <p>
-                Investigate the discrepancy before
-                considering any write-off.
+                Investigate the discrepancy and verify
+                the supporting documentation first.
             </p>
+        `;
+
+    } else if (decision === "writeoff") {
+
+        result.innerHTML = `
+            <h3>Incorrect accounting treatment!</h3>
+
+            <p>
+                A disputed balance should not automatically
+                be written off as bad debt.
+            </p>
+
+            <p>
+                The company must investigate the claim,
+                review collection efforts, and obtain
+                the required approval before considering
+                a write-off.
+            </p>
+
+            <strong>
+                Status: Dispute investigation required.
+            </strong>
         `;
 
     } else {
