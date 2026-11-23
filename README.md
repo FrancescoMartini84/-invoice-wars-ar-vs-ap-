@@ -1,3 +1,9 @@
+# Invoice Wars: AR vs. AP
+
+A fictional bookkeeping case study demonstrating
+Accounts Receivable (AR), Accounts Payable (AP),
+short payments, disputed invoices, and reconciliation
+
 ## Scenario
 
 A customer receives an invoice for $2,650 but
