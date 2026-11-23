@@ -1,4 +1,5 @@
-### ### File 2 — `ar_ap_case.py`
+
+### File 2 — `ar_ap_case.py`
 
 This is the Python component. It calculates the outstanding balance and evaluates the dispute.
 
@@ -11,8 +12,8 @@ company = "Sterling Office Solutions LLC"
 customer = "Greenfield Medical Group"
 
 invoice_amount = 2650.00
-payment_received = 250.00
-claimed_deduction = 2400.00
+payment_received = 2400.00
+claimed_deduction = 250.00
 
 supplier_credit_received = False
 
@@ -27,11 +28,11 @@ def evaluate_dispute():
         payment_received
     )
 
-    print("\n INVOICE WARS: AR vs. AP")
+    print("\nINVOICE WARS: AR vs. AP")
     print("------------------------------")
 
-    print("Company", company)
-    print("Customer", customer)
+    print("Company:", company)
+    print("Customer:", customer)
 
     print(f"Invoice: ${invoice_amount:.2f}")
     print(f"Payment: ${payment_received:.2f}")
@@ -42,8 +43,8 @@ def evaluate_dispute():
     if balance == claimed_deduction:
         print("\nSTATUS: SHORT PAYMENT IDENTIFIED")
 
-    if not_supplier_received:
-        print("SUPPLER CREDIT: NOT RECEIVED")
+    if not supplier_credit_received:
+        print("SUPPLIER CREDIT: NOT RECEIVED")
         print("ACTION: Keep the disputed balance open.")
         print("REQUEST: Obtain supporting documentation.")
 
@@ -52,16 +53,3 @@ def evaluate_dispute():
 
 if __name__ == "__main__":
     evaluate_dispute()
-
-
-
-
-
-
-
-
-
-
-
-
-
