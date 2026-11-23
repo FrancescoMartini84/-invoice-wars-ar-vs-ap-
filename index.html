@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Invoice Wars | AR vs. AP</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>INVOICE WARS</h1>
+    <p>Accounts Receivable vs. Accounts Payable</p>
+</header>
+
+<main>
+
+    <section class="panel">
+        <h2>The $250 Dispute</h2>
+
+        <p>
+            A customer has short-paid an invoice,
+            claiming damaged merchandise.
+            AR and AP disagree about how to resolve it.
+        </p>
+    </section>
+
+    <section class="panel">
+        <h2>Invoice Summary</h2>
+
+        <div class="figures">
+            <div>
+                <span>Invoice</span>
+                <strong>$2,650.00</strong>
+            </div>
+
+            <div>
+                <span>Payment</span>
+                <strong>$2,400.00</strong>
+            </div>
+
+            <div>
+                <span>Disputed</span>
+                <strong>$250.00</strong>
+            </div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>The Disagreement</h2>
+
+        <p><strong>Sofia (AR):</strong></p>
+        <blockquote>
+            I cannot close an invoice with an
+            unexplained outstanding balance.
+        </blockquote>
+
+        <p><strong>Marcus (AP):</strong></p>
+        <blockquote>
+            We cannot issue a vendor credit without
+            an approved credit memo.
+        </blockquote>
+    </section>
+
+    <section class="panel">
+        <h2>Your Decision</h2>
+
+        <p>
+            What should the accounting team do first?
+        </p>
+
+        <select id="decision">
+            <option value="">
+                Select your decision
+            </option>
+
+            <option value="hold">
+                Hold the disputed balance and
+                request supporting documentation
+            </option>
+
+            <option value="credit">
+                Immediately issue a $250 customer credit
+            </option>
+
+            <option value="writeoff">
+                Write off the $250 as bad debt
+            </option>
+        </select>
+
+        <button onclick="evaluateDecision()">
+            Evaluate Decision
+        </button>
+
+        <div id="result"></div>
+    </section>
+
+    <section class="panel">
+        <h2>Accounting Takeaway</h2>
+
+        <p>
+            A short payment is not automatically
+            an approved credit. Reconciliation requires
+            supporting documentation, verification,
+            and proper authorization.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    <p>Fictional educational project | AR & AP</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
