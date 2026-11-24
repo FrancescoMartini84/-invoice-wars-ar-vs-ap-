@@ -1,52 +1,31 @@
 
 /* =========================================
-   INVOICE CONFLICTS: AR vs. AP
-   Light Financial Dashboard Theme
+   INVOICE CONFLICTS — AR vs. AP
+   Light financial dashboard
    ========================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
-
-/* ---------- GLOBAL VARIABLES ---------- */
-
-:root {
-    --primary: #3563e9;
-    --primary-dark: #2449bd;
-    --primary-light: #eaf0ff;
-
-    --teal: #0eaa91;
-    --teal-light: #e4f8f3;
-
-    --orange: #ed9842;
-    --orange-light: #fff3e5;
-
-    --red: #e35c68;
-    --red-light: #fff0f1;
-
-    --background: #f3f6fc;
-    --surface: #ffffff;
-    --surface-soft: #f8faff;
-
-    --text: #202c43;
-    --text-secondary: #64728b;
-    --text-muted: #91a0b5;
-
-    --border: #e5eaf3;
-
-    --shadow:
-        0 12px 35px rgba(37, 57, 95, 0.07);
-
-    --shadow-hover:
-        0 18px 45px rgba(37, 57, 95, 0.12);
-
-    --radius: 18px;
-}
-
-/* ---------- RESET ---------- */
+/* 1. GLOBAL RESET */
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+
+:root {
+    --navy: #172b4d;
+    --blue: #2864dc;
+    --blue-light: #edf3ff;
+    --teal: #087f78;
+    --teal-light: #e7f7f3;
+    --orange: #d97706;
+    --orange-light: #fff4e5;
+    --background: #f3f6fb;
+    --surface: #ffffff;
+    --text: #263449;
+    --muted: #718096;
+    --border: #e3e9f2;
+    --shadow: 0 8px 24px rgba(31, 52, 82, 0.07);
 }
 
 html {
@@ -54,371 +33,233 @@ html {
 }
 
 body {
-    min-height: 100vh;
-    font-family: 'DM Sans', sans-serif;
-    background:
-        radial-gradient(
-            circle at 5% 0%,
-            #e7edff 0,
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 95% 10%,
-            #e3f8f3 0,
-            transparent 27%
-        ),
-        var(--background);
-
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
     color: var(--text);
     line-height: 1.65;
-    padding: 35px 20px;
+    min-height: 100vh;
 }
 
-/* ---------- GENERAL DIV CONTAINERS ---------- */
-
-div {
-    box-sizing: border-box;
-    min-width: 0;
-    max-width: 100%;
-    transition:
-        background-color 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-/* ---------- MAIN CONTAINER ---------- */
-
-.container {
-    width: 100%;
-    max-width: 1050px;
-    margin: 0 auto;
-}
-
-/* ---------- HEADER ---------- */
+/* 2. HEADER */
 
 header {
+    background: linear-gradient(120deg, #172b4d, #2455a6);
+    color: white;
     text-align: center;
-    margin-bottom: 38px;
-    animation: fadeUp 0.7s ease both;
+    padding: 52px 20px 46px;
+    border-bottom: 5px solid #39b8ad;
 }
 
 header h1 {
-    font-family: 'Manrope', sans-serif;
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 800;
-    letter-spacing: -1.8px;
-
-    background: linear-gradient(
-        110deg,
-        #315be0,
-        #08a88f,
-        #5685ed
-    );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-header p {
-    color: var(--text-secondary);
-    font-size: 1.05rem;
-    margin-top: 8px;
-}
-
-/* ---------- SECTION CARDS ---------- */
-
-.card {
-    background: var(--surface);
-    border: 1px solid rgba(220, 228, 241, 0.9);
-    border-radius: var(--radius);
-    padding: 28px;
-    margin-bottom: 24px;
-    box-shadow: var(--shadow);
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-
-    animation: fadeUp 0.65s ease both;
-}
-
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
-}
-
-.card h2 {
-    font-family: 'Manrope', sans-serif;
-    font-size: 1.35rem;
-    font-weight: 800;
-    margin-bottom: 16px;
-    color: var(--text);
-}
-
-.card p {
-    color: var(--text-secondary);
-    margin-bottom: 12px;
-}
-
-/* ---------- FINANCIAL METRICS ---------- */
-
-.metrics {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-bottom: 24px;
-}
-
-.metric {
-    background: var(--surface);
-    padding: 22px;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-    transition: 0.25s ease;
-}
-
-.metric:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-}
-
-.metric h3 {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-secondary);
+    letter-spacing: 2px;
     margin-bottom: 8px;
 }
 
-.metric .value {
-    font-family: 'Manrope', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--primary);
-}
-
-.metric.warning .value {
-    color: var(--orange);
-}
-
-.metric.success .value {
-    color: var(--teal);
-}
-
-/* ---------- DEPARTMENT LABELS ---------- */
-
-.department {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 6px 12px;
-    border-radius: 30px;
-    font-size: 0.78rem;
-    font-weight: 800;
+header p {
+    color: #dbe7ff;
+    font-size: 1.05rem;
     letter-spacing: 0.4px;
 }
 
-.department.ar {
-    color: var(--primary-dark);
-    background: var(--primary-light);
+/* 3. MAIN CONTENT */
+
+main {
+    width: min(920px, calc(100% - 36px));
+    margin: 38px auto;
 }
 
-.department.ap {
-    color: #087e6d;
-    background: var(--teal-light);
+/* 4. CONTENT PANELS */
+
+.panel {
+    background: var(--surface);
+    padding: 28px 30px;
+    margin-bottom: 22px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
 }
 
-/* ---------- TABLES ---------- */
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-    overflow: hidden;
+.panel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(31, 52, 82, 0.11);
 }
 
-th {
-    background: #f0f4fc;
-    color: var(--text-secondary);
-    font-size: 0.78rem;
-    font-weight: 800;
+.panel h2 {
+    color: var(--navy);
+    font-size: 1.3rem;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--blue-light);
+}
+
+.panel p {
+    margin-bottom: 12px;
+}
+
+/* 5. FINANCIAL FIGURES */
+
+.figures {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.figures > div {
+    background: var(--blue-light);
+    padding: 20px 12px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #dce7ff;
+    transition: transform 0.2s ease,
+                background-color 0.2s ease;
+}
+
+.figures > div:hover {
+    transform: translateY(-4px);
+    background: #e2ecff;
+}
+
+.figures span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.7px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
 }
 
-th,
-td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
+.figures strong {
+    display: block;
+    color: var(--navy);
+    font-size: clamp(1.1rem, 3vw, 1.55rem);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
 }
 
-td {
-    color: var(--text-secondary);
+.figures > div:last-child {
+    background: var(--orange-light);
+    border-color: #f7dfb9;
 }
 
-tr:hover td {
-    background: #f8faff;
+.figures > div:last-child strong {
+    color: var(--orange);
 }
 
-/* ---------- DECISION AREA ---------- */
+/* 6. DEPARTMENT STATEMENTS */
+
+blockquote {
+    background: #f7f9fc;
+    border-left: 4px solid var(--teal);
+    padding: 15px 20px;
+    margin: 8px 0 20px;
+    border-radius: 0 10px 10px 0;
+    color: #42536b;
+    font-style: italic;
+}
+
+.panel p strong {
+    color: var(--navy);
+}
+
+/* 7. DECISION DROPDOWN */
 
 select {
+    display: block;
     width: 100%;
-    padding: 15px 17px;
-    border: 1px solid #dce4f1;
-    border-radius: 12px;
-
-    background: var(--surface-soft);
+    padding: 15px 16px;
+    margin: 18px 0;
+    background: #ffffff;
     color: var(--text);
-
-    font-family: inherit;
-    font-size: 0.95rem;
-
-    outline: none;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
     cursor: pointer;
-
-    transition: 0.25s ease;
-}
-
-select:hover {
-    border-color: var(--primary);
+    outline: none;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
 }
 
 select:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(53, 99, 233, 0.12);
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(40, 100, 220, 0.14);
 }
 
-/* ---------- BUTTONS ---------- */
+/* 8. ACTION BUTTON */
 
 button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
+    display: inline-block;
     padding: 14px 25px;
-    margin-top: 18px;
-
-    border: none;
-    border-radius: 12px;
-
-    background: linear-gradient(
-        110deg,
-        var(--primary),
-        #5685ed
-    );
-
+    background: var(--blue);
     color: white;
-    font-family: inherit;
-    font-size: 0.95rem;
-    font-weight: 800;
-
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-
-    box-shadow:
-        0 7px 18px rgba(53, 99, 233, 0.22);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        filter 0.2s ease;
+    box-shadow: 0 4px 12px rgba(40, 100, 220, 0.22);
+    transition: background-color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
 }
 
 button:hover {
-    transform: translateY(-3px);
-    box-shadow:
-        0 12px 25px rgba(53, 99, 233, 0.3);
-    filter: brightness(1.05);
+    background: #174db8;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 16px rgba(40, 100, 220, 0.28);
 }
 
 button:active {
-    transform: scale(0.97);
+    transform: translateY(0);
 }
 
-/* ---------- DECISION RESULT ---------- */
+/* 9. DECISION FEEDBACK */
 
 #result {
     display: none;
-    margin-top: 24px;
-    padding: 25px;
-
-    background: linear-gradient(
-        135deg,
-        #f0f5ff,
-        #eafaf6
-    );
-
-    border: 1px solid #dbe9f7;
-    border-left: 5px solid var(--primary);
-    border-radius: 15px;
-
-    animation: fadeUp 0.4s ease both;
+    margin-top: 22px;
+    padding: 22px;
+    background: var(--teal-light);
+    border: 1px solid #b9e8dc;
+    border-left: 5px solid var(--teal);
+    border-radius: 12px;
+    animation: appear 0.35s ease;
 }
 
 #result h3 {
-    font-family: 'Manrope', sans-serif;
-    font-size: 1.2rem;
+    color: var(--teal);
     margin-bottom: 12px;
-    color: var(--primary-dark);
 }
 
 #result p {
-    color: var(--text-secondary);
     margin-bottom: 10px;
 }
 
 #result strong {
-    display: inline-block;
-    margin-top: 10px;
-    color: #087e6d;
+    color: var(--teal);
 }
 
-/* ---------- STATUS LABELS ---------- */
-
-.status {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 30px;
-    font-size: 0.78rem;
-    font-weight: 800;
-}
-
-.status.pending {
-    color: #a96518;
-    background: var(--orange-light);
-}
-
-.status.approved {
-    color: #087e6d;
-    background: var(--teal-light);
-}
-
-.status.rejected {
-    color: #c13d4b;
-    background: var(--red-light);
-}
-
-/* ---------- FOOTER ---------- */
+/* 10. FOOTER */
 
 footer {
     text-align: center;
-    margin-top: 35px;
-    color: var(--text-muted);
-    font-size: 0.85rem;
+    padding: 25px 16px;
+    color: var(--muted);
+    font-size: 0.9rem;
 }
 
-footer p {
-    margin-bottom: 5px;
-}
+/* 11. ANIMATION */
 
-/* ---------- ANIMATIONS ---------- */
-
-@keyframes fadeUp {
+@keyframes appear {
     from {
         opacity: 0;
-        transform: translateY(18px);
+        transform: translateY(8px);
     }
 
     to {
@@ -427,33 +268,29 @@ footer p {
     }
 }
 
-/* ---------- RESPONSIVE DESIGN ---------- */
+/* 12. MOBILE RESPONSIVENESS */
 
-@media (max-width: 700px) {
-
-    body {
-        padding: 20px 13px;
+@media (max-width: 600px) {
+    header {
+        padding: 38px 16px;
     }
 
-    .metrics {
+    main {
+        width: calc(100% - 24px);
+        margin: 22px auto;
+    }
+
+    .panel {
+        padding: 22px 18px;
+    }
+
+    .figures {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
 
-    .card {
-        padding: 21px;
-    }
-
-    header h1 {
-        letter-spacing: -1px;
-    }
-
-    table {
-        font-size: 0.85rem;
-    }
-
-    th,
-    td {
-        padding: 10px;
+    .figures > div {
+        padding: 16px;
     }
 
     button {
@@ -461,12 +298,14 @@ footer p {
     }
 }
 
+/* 13. ACCESSIBILITY */
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
+        scroll-behavior: auto !important;
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
     }
 }
