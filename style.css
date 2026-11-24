@@ -1,120 +1,460 @@
+
+/* =========================================
+   INVOICE CONFLICTS: AR vs. AP
+   Light Financial Dashboard Theme
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* ---------- GLOBAL VARIABLES ---------- */
+
+:root {
+    --primary: #3563e9;
+    --primary-dark: #2449bd;
+    --primary-light: #eaf0ff;
+
+    --teal: #0eaa91;
+    --teal-light: #e4f8f3;
+
+    --orange: #ed9842;
+    --orange-light: #fff3e5;
+
+    --red: #e35c68;
+    --red-light: #fff0f1;
+
+    --background: #f3f6fc;
+    --surface: #ffffff;
+    --surface-soft: #f8faff;
+
+    --text: #202c43;
+    --text-secondary: #64728b;
+    --text-muted: #91a0b5;
+
+    --border: #e5eaf3;
+
+    --shadow:
+        0 12px 35px rgba(37, 57, 95, 0.07);
+
+    --shadow-hover:
+        0 18px 45px rgba(37, 57, 95, 0.12);
+
+    --radius: 18px;
+}
+
+/* ---------- RESET ---------- */
+
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #101827;
-    color: #f1f5f9;
-    line-height: 1.6;
+html {
+    scroll-behavior: smooth;
 }
+
+body {
+    min-height: 100vh;
+    font-family: 'DM Sans', sans-serif;
+    background:
+        radial-gradient(
+            circle at 5% 0%,
+            #e7edff 0,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 95% 10%,
+            #e3f8f3 0,
+            transparent 27%
+        ),
+        var(--background);
+
+    color: var(--text);
+    line-height: 1.65;
+    padding: 35px 20px;
+}
+
+/* ---------- MAIN CONTAINER ---------- */
+
+.container {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+/* ---------- HEADER ---------- */
 
 header {
     text-align: center;
-    padding: 35px 15px;
-    background: #1e293b;
-    border-bottom: 3px solid #38bdf8;
+    margin-bottom: 38px;
+    animation: fadeUp 0.7s ease both;
 }
 
 header h1 {
-    margin: 0;
-    letter-spacing: 3px;
-    color: #38bdf8;
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -1.8px;
+
+    background: linear-gradient(
+        110deg,
+        #315be0,
+        #08a88f,
+        #5685ed
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
-main {
-    width: 90%;
-    max-width: 750px;
-    margin: 30px auto;
+header p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    margin-top: 8px;
 }
 
-.panel {
-    background: #1e293b;
-    padding: 22px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    border: 1px solid #334155;
+/* ---------- SECTION CARDS ---------- */
+
+.card {
+    background: var(--surface);
+    border: 1px solid rgba(220, 228, 241, 0.9);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    animation: fadeUp 0.65s ease both;
 }
 
-h2 {
-    color: #38bdf8;
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
 }
 
-.figures {
+.card h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+.card p {
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+/* ---------- FINANCIAL METRICS ---------- */
+
+.metrics {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 18px;
+    margin-bottom: 24px;
 }
 
-.figures div {
-    background: #334155;
-    padding: 15px 8px;
-    border-radius: 8px;
-    text-align: center;
+.metric {
+    background: var(--surface);
+    padding: 22px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: 0.25s ease;
 }
 
-.figures span,
-.figures strong {
-    display: block;
+.metric:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
 }
 
-.figures strong {
-    margin-top: 8px;
-    color: #4ade80;
+.metric h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
 }
 
-blockquote {
-    margin: 10px 0 20px;
-    padding: 12px;
-    background: #334155;
-    border-left: 4px solid #38bdf8;
-    border-radius: 4px;
+.metric .value {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary);
 }
 
-select,
-button {
+.metric.warning .value {
+    color: var(--orange);
+}
+
+.metric.success .value {
+    color: var(--teal);
+}
+
+/* ---------- DEPARTMENT LABELS ---------- */
+
+.department {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+}
+
+.department.ar {
+    color: var(--primary-dark);
+    background: var(--primary-light);
+}
+
+.department.ap {
+    color: #087e6d;
+    background: var(--teal-light);
+}
+
+/* ---------- TABLES ---------- */
+
+table {
     width: 100%;
-    padding: 13px;
-    margin-top: 12px;
-    border-radius: 7px;
-    font-size: 15px;
+    border-collapse: collapse;
+    margin-top: 15px;
+    overflow: hidden;
 }
+
+th {
+    background: #f0f4fc;
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+td {
+    color: var(--text-secondary);
+}
+
+tr:hover td {
+    background: #f8faff;
+}
+
+/* ---------- DECISION AREA ---------- */
 
 select {
-    background: #334155;
-    color: white;
-    border: 1px solid #64748b;
+    width: 100%;
+    padding: 15px 17px;
+    border: 1px solid #dce4f1;
+    border-radius: 12px;
+
+    background: var(--surface-soft);
+    color: var(--text);
+
+    font-family: inherit;
+    font-size: 0.95rem;
+
+    outline: none;
+    cursor: pointer;
+
+    transition: 0.25s ease;
 }
 
+select:hover {
+    border-color: var(--primary);
+}
+
+select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(53, 99, 233, 0.12);
+}
+
+/* ---------- BUTTONS ---------- */
+
 button {
-    background: #0284c7;
-    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 25px;
+    margin-top: 18px;
+
     border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(
+        110deg,
+        var(--primary),
+        #5685ed
+    );
+
+    color: white;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 800;
+
     cursor: pointer;
-    font-weight: bold;
+
+    box-shadow:
+        0 7px 18px rgba(53, 99, 233, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
 }
 
 button:hover {
-    background: #0369a1;
+    transform: translateY(-3px);
+    box-shadow:
+        0 12px 25px rgba(53, 99, 233, 0.3);
+    filter: brightness(1.05);
 }
 
-#result {
-    margin-top: 18px;
-    padding: 15px;
-    border-radius: 8px;
-    display: none;
-    background: #334155;
+button:active {
+    transform: scale(0.97);
 }
+
+/* ---------- DECISION RESULT ---------- */
+
+#result {
+    display: none;
+    margin-top: 24px;
+    padding: 25px;
+
+    background: linear-gradient(
+        135deg,
+        #f0f5ff,
+        #eafaf6
+    );
+
+    border: 1px solid #dbe9f7;
+    border-left: 5px solid var(--primary);
+    border-radius: 15px;
+
+    animation: fadeUp 0.4s ease both;
+}
+
+#result h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: var(--primary-dark);
+}
+
+#result p {
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+#result strong {
+    display: inline-block;
+    margin-top: 10px;
+    color: #087e6d;
+}
+
+/* ---------- STATUS LABELS ---------- */
+
+.status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.status.pending {
+    color: #a96518;
+    background: var(--orange-light);
+}
+
+.status.approved {
+    color: #087e6d;
+    background: var(--teal-light);
+}
+
+.status.rejected {
+    color: #c13d4b;
+    background: var(--red-light);
+}
+
+/* ---------- FOOTER ---------- */
 
 footer {
     text-align: center;
-    padding: 20px;
-    color: #94a3b8;
+    margin-top: 35px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
 }
 
-@media (max-width: 500px) {
-    .figures {
+footer p {
+    margin-bottom: 5px;
+}
+
+/* ---------- ANIMATIONS ---------- */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 20px 13px;
+    }
+
+    .metrics {
         grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 21px;
+    }
+
+    header h1 {
+        letter-spacing: -1px;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
