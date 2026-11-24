@@ -74,6 +74,18 @@ body {
     padding: 35px 20px;
 }
 
+/* ---------- GENERAL DIV CONTAINERS ---------- */
+
+div {
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
 /* ---------- MAIN CONTAINER ---------- */
 
 .container {
